@@ -1723,13 +1723,13 @@ def sigterm_handler(signum, frame):
     sys.exit(signum)
 
 
-try:
-    ray._private.utils.set_sigterm_handler(sigterm_handler)
-except ValueError:
-    logger.warning(
-        "Failed to set SIGTERM handler, processes might"
-        "not be cleaned up properly on exit."
-    )
+# try:
+#     ray._private.utils.set_sigterm_handler(sigterm_handler)
+# except ValueError:
+#     logger.warning(
+#         "Failed to set SIGTERM handler, processes might"
+#         "not be cleaned up properly on exit."
+#     )
 
 # Define a custom excepthook so that if the driver exits with an exception, we
 # can push that exception to Redis.
